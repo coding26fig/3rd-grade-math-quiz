@@ -11,7 +11,7 @@ header{
     color: rgb(161, 77, 240);
     text-align: center;
     font-size: 60px;
-    padding: 160px;
+    padding: 60px;
 }
 
 .mainbox{
@@ -27,6 +27,7 @@ header{
     height: 60vh;
     width: 800px;
     padding-bottom: 30px;
+    
 }
 
 .answer-buttons{
@@ -35,12 +36,18 @@ header{
     color: white;
     border-radius: 5px;
     display: block;
+    transition-duration: 0.4s;
    }
 
 button{
     font-size: 50px;
     border-radius: 5px;
     padding: 14px 40px;
+   
+}
+.answer-buttons:hover{
+    background-color: white;
+    color:rgb(161, 77, 240);
 }
 
 .hide{
@@ -51,7 +58,35 @@ button{
 }
 #next{
     text-align: center;
+    transition-duration: 0.4s;
+  
+    
+}
+#next:hover{
+    background-color:rgb(161, 77, 240) ;
+    color:white;
+}
+#start:hover{
+    background-color:rgb(161, 77, 240) ;
+    color:white;
+}
+#start {
+    transition-duration: 0.4s
 }
 
+.counter{
+    border: 3px solid white;
+    margin: 20px auto;
+    width: 200px;
+    font-size: 46px;
+    color: white ;
+    border-radius: 4px;
+    text-align: center;
+    padding: 15px 20px;
+    position: relative;
 
-
+}
+#questions{
+    font-weight: bold;
+    text-align: center;
+}

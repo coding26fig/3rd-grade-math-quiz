@@ -4,33 +4,36 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3rd Grade Math Quiz</title>
+    <title>2nd Grade Math Quiz</title>
     <link rel="stylesheet" href="/3rd-grade-math-quiz/assets/stylesheet.css">
 </head>
 <body>
-    <div>
-    <header>🧮Lanay's 3rd Grade Math Quiz🧮</header>
+    <div> <!--header-->
+    <header>🧮2nd Grade Math Quiz🧮</header>
     </div>
 
+        <!--Timer window-->
+    <div class="counter">
+        <div class=time>Time</div>
+        <div class="left">left</div>
+       <span id="timer">0</span>
+    </div>
+        <!--Quiz box-->
     <div class="mainbox">
         <div id="quesiton-box" >
         <div id="questions" class="hide">Question?</div>
         <div id="answers" class="select hide" >
-            <button class="answer-buttons">answer1</button>
-            <button class="answer-buttons">answer1</button>
-            <button class="answer-buttons">answer1</button>
-            <button class="answer-buttons">answer1</button>
+            <button id="answer1" class="answer-buttons">answer1</button>
+            <button id="answer2" class="answer-buttons">answer1</button>
+            <button id="answer3" class="answer-buttons">answer1</button>
+            <button id="answer4" class="answer-buttons">answer1</button>
         </div>
+        <!--Start and next buttons -->
         <div class="buttons">
             <button id="start" class="start-btn .show">Start</button>
             <button id="next" class="next-btn hide">Next</button>
        </div>
     </div>
-
-        <!-- <div class="buttons">
-             <button id="start" class="start-btn">Start</button>
-             <button id="next" class="next-btn">Next</button>
-        </div> -->
 
 
 <script src="/3rd-grade-math-quiz/assets/script.js"></script>
