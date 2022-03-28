@@ -6,7 +6,8 @@ var next = document.querySelector(".next-btn")
 var questions = document.querySelector("#questions")
 var index = 0;
 var choose = 0;
-
+var time = 60;
+var score = 0;
 
 
 /*var question1 = {q1: ("What is 6 * 2?"), a: 15, b: 19, c: 12, d: 10, correct:("c")}
@@ -20,94 +21,93 @@ var question8 = {q1: ("What is 6 * 6"), a: 52, b: 37, c: 24, d: 36, correct:("d"
 var question9 = {q1: ("What is 11 * 7"), a: 77, b: 44, c: 42, d: 16, correct:("a")}
 var question10 = {q1: ("What is 9 * 3"), a: 13, b: 6, c: 27, d: 36, correct:("c")}
 
-document.getElementById("answer1").innerHTML = question1.a;
-document.getElementById("answer2").innerHTML = question1.b;
-document.getElementById("answer3").innerHTML = question1.c;
-document.getElementById("answer4").innerHTML = question1.d;
-document.getElementById("questions").innerHTML = question1.q1;
 */
 
-
-
-
-
 var allQuestions = [
+
 {
     question : 'What is 6 * 2?',
-    choices :{
-        a :15,
-        b :19,
-        c :12,
-        d :10,
-
-    },
-correct : "c"
-
+    a :15,
+    b :19,
+    c :12,
+    d :10,
+    correct : 12,
 },
 {
     question : 'What is 7 * 3?',
-    choices :{
     a :14,
     b :21,
     c :16,
-    b :24,
-},
-correct : "b",
+    d :24,
+    correct : 21,
 },
 {
     question : 'What is 6 * 4?',
-    choices :{
     a: 15,
     b: 20,
     c: 18,
     d: 30,
-},
-    correct : "b",
+    correct : 20,
 },
 {
     question : 'What is 12 * 3?',
-    choices :{
     a:11,
     b:23,
     c:12,
     d:36,
-},
-    correct :"d",
-    
-    
+    correct : 36,   
 },
 {
     question : 'What is 20 * 5?',
-    choices :{
     a : 100,
     b : 86,
     c : 112,
     d : 90,
-},
-    correct :"a",
+    correct: 100,
 },
 { 
     question : 'What is 9 * 2?',
-    choices :{
     a : 15,
     b : 19,
     c : 10,
     d : 18,
-},
-    correct :"d",
+    correct :18,   
 },
 {
     question : 'What is 15 + 5?',
-    choices :{
     a :15,
     b :20,
     c :10,
     d :19,
+    correct :20,
 },
-    correct :"b",
+{
+    question: ("What is 11 * 7"), 
+    a: 77, 
+    b: 44, 
+    c: 42, 
+    d: 16, 
+    correct:(77)
 },
-  
-    
+
+ {
+   question: ("What is 9 * 7"), 
+   a: 77, 
+   b: 44, 
+   c: 63, 
+   d: 16, 
+  correct:(63)
+},
+
+{
+  question: ("What is 9 * 3"), 
+  a: 13, 
+  b: 6, 
+  c: 27, 
+  d: 36, 
+  correct:(27)
+}
+
 ]
 
 //added event listener for the start button to hide elements until it is clicked
@@ -115,121 +115,95 @@ correct : "b",
 //created function start game and assigned what I wanted that function to do.
 startBtn.addEventListener("click", startGame);
 
+
 function startGame() {
-answers.classList.remove('hide')
-next.classList.remove('hide')
-questions.classList.remove('hide')
-startBtn.classList.add('show')
-console.log("start")
-//getQuestion();
-//gettingAnswers();
+    let answerButtons = document.querySelector('#answers').children
+    console.log(answerButtons)
+    for(let i = 0; i < answerButtons.length; i++){
+        answerButtons[i].addEventListener("click", (event) => {
+            let element = event.target.innerText
+            console.log(element)
+            getQuestion()
+            checkAnswer(element)
+            index++
+        })
+    }
+
+
+
+
+
+    answers.classList.remove('hide')
+    next.classList.remove('hide')
+    questions.classList.remove('hide')
+    startBtn.classList.add('show')
+    getQuestion();
+    timer()
+
+
+    console.log("start")
+}
+next.addEventListener("click",getQuestion);
+
+function timer(){
+    var setTime = setInterval(() => {
+        time--
+        document.querySelector('#timer').innerText = time
+
+        if(time === 0){
+            clearInterval(setTime)
+        }
+    },1000)
+}
+
+function checkAnswer(answer){
+    let parsedAnswer = parseInt(answer)
+    let currentQuestion = allQuestions[index]
+
+    console.log(answer)
+
+    if(parsedAnswer === currentQuestion.correct){
+       answers.classList.add('right')
+       score++;
+       console.log("right")
+       drawScore();
+
+    }else{
+        answers.classList.add('wrong')
+        console.log("wrong")
+        time--;
+    }
+
 
 
 }
 
-// function getQuestion(allQuestions, quizContainer){
-// var output = [];
-// var answers;
-// for( var i=0; i < allQuestions.length; i++){
-//     answers = [];
-//     for()
 
-// }
-// }
+function getQuestion(){
+    let currentQuestion = allQuestions[index]
+    console.log(currentQuestion)
 
-//We want to have an index that we can refernce for the question and because this is an array
-//its going to start at 0
-
-
-/*function getQuestion(){
-    var currentQuestion = question1[index]
-    document.getElementById("questions").textContent = currentQuestion.question1
+    document.getElementById("questions").textContent = currentQuestion.question
+    document.getElementById("answer1").textContent = currentQuestion.a
+    document.getElementById("answer2").textContent = currentQuestion.b
+    document.getElementById("answer3").textContent = currentQuestion.c
+    document.getElementById("answer4").textContent = currentQuestion.d
 }
-function gettingAnswers(){ 
-    var currentAnswers = allQuestions[choose]
-   document.getElementsById("answer1").textContent = currentAnswers.choices.a
+
+function drawScore(){
+  document.getElementById("points").textContent = score
 }
-for()*/
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// function starTime(){ 
-// var timeleft = 10;
-// var stopTime = setInterval(function(){
-// if(timeleft <= 0){
- 
-// setInterval(makeAlert, 10000);    
-// clearInterval(timeleft);
-
-// }
-
-
-   
- 
- 
-// // added event listener to next button with a for loop to loop thru array of questions 
-// next.addEventListener("click", nextQuestion)
 // function nextQuestion(){
-//     //document.getElementById('{questions}').innerHTML = Object.keys();
-//     document.getElementsByClassName('{answer}').innerHTML = question;
-//     for( var i=0; i < allQuestions.length; i++){
-//         console.log("hello")
+
+//     document.getElementById("questions").textContent = currentQuestion.question
+//     document.getElementById("answer1").textContent = currentQuestion.a
+//     document.getElementById("answer2").textContent = currentQuestion.b
+//     document.getElementById("answer3").textContent = currentQuestion.c
+//     document.getElementById("answer4").textContent = currentQuestion.d 
+
 
 // }
-
-// // assigning variables to create functions 
-
-// //var lastQuestion = allQuestions.length- 1;//this variable will be the last question in the array
-// //var currentQuestion = 0; 
-
-
-
-
-
-
-
-
-
-
-
-// need a function that is if wrongs options are chosen then this will happen and if right answer is chosen 
-//this will happen 
-
