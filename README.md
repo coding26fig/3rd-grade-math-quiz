@@ -54,8 +54,10 @@ To do:
 
 
 
-##License
+## License
+
+- This project is not licensed
 
 
-<!-- This project is not licensed -->
+
 
