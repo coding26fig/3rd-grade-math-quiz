@@ -1,4 +1,4 @@
-# 3rd Grade Math Quiz
+# 🧮3rd Grade Math Quiz🧮
 This project was created for my 2nd grader. She loves galaxy themes and the color purple. I wanted to create a quiz that any second grader would enjoy taking. I wanted this quiz to showcase my knowledge and what I've learned so far in my first 5 weeks of bootcamp.
 
 ## Table of Contents
