@@ -16,7 +16,7 @@ header{
     padding: 60px;
 }
 
-.mainbox{
+.mainbox {
     margin: auto;
     font-size: 42px;
     display: flex;
@@ -98,5 +98,7 @@ button{
 .wrong{
     background-color: red;
 }
-
-
+.end{
+    
+    background: rgb(2, 2, 59);
+}

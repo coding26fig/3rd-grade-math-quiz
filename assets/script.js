@@ -4,6 +4,8 @@ var startBtn = document.querySelector(".start-btn");
 var answers = document.querySelector(".select")
 var next = document.querySelector(".next-btn")
 var questions = document.querySelector("#questions")
+var mainB = document.querySelector("#question-box")
+var endGame = document.querySelector(".end")
 var index = 0;
 var choose = 0;
 var time = 60;
@@ -123,15 +125,11 @@ function startGame() {
         answerButtons[i].addEventListener("click", (event) => {
             let element = event.target.innerText
             console.log(element)
-            getQuestion()
             checkAnswer(element)
             index++
+            getQuestion()
         })
     }
-
-
-
-
 
     answers.classList.remove('hide')
     next.classList.remove('hide')
@@ -141,9 +139,15 @@ function startGame() {
     timer()
 
 
+
     console.log("start")
 }
-next.addEventListener("click",getQuestion);
+
+function skipQuestion(){
+    index++
+    getQuestion()
+}
+next.addEventListener("click",skipQuestion);
 
 function timer(){
     var setTime = setInterval(() => {
@@ -161,6 +165,7 @@ function checkAnswer(answer){
     let currentQuestion = allQuestions[index]
 
     console.log(answer)
+    console.log(currentQuestion.correct)
 
     if(parsedAnswer === currentQuestion.correct){
        answers.classList.add('right')
@@ -179,23 +184,50 @@ function checkAnswer(answer){
 }
 
 
-function getQuestion(){
-    let currentQuestion = allQuestions[index]
-    console.log(currentQuestion)
 
-    document.getElementById("questions").textContent = currentQuestion.question
-    document.getElementById("answer1").textContent = currentQuestion.a
-    document.getElementById("answer2").textContent = currentQuestion.b
-    document.getElementById("answer3").textContent = currentQuestion.c
-    document.getElementById("answer4").textContent = currentQuestion.d
+function getQuestion(){
+
+    if(allQuestions.length > index || time === 0 ){
+        let currentQuestion = allQuestions[index]
+        console.log(currentQuestion)
+
+        document.getElementById("questions").textContent = currentQuestion.question
+        document.getElementById("answer1").textContent = currentQuestion.a
+        document.getElementById("answer2").textContent = currentQuestion.b
+        document.getElementById("answer3").textContent = currentQuestion.c
+        document.getElementById("answer4").textContent = currentQuestion.d
+    }else{
+        displayGameOver()
+    }
 }
 
 function drawScore(){
   document.getElementById("points").textContent = score
+  if(time === 0 ){
+    endGame.classList.remove('hide')
+    console.log('end')
+  }
 }
 
+/*
+ - textbox for initials
+ - save both initials and highscore to localstorage
+ - display highscore along intials
+*/
 
+function displayGameOver(){
+    endGame.classList.remove('hide')
+    //endGame.classList.add('show')
 
+    //mainB.classList.remove('show')
+    mainB.classList.add('hide')
+}
+
+function saveScore(){
+    //event.preventDefault()
+    var initials = document.getElementById('initials')
+    console.log(initials + score)
+}
 
 // function nextQuestion(){
 

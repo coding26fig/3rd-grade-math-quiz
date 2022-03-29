@@ -23,11 +23,11 @@
     </div>
         <!--Quiz box-->
     <div class="mainbox">
-        <div id="quesiton-box" >
+        <div id="quesiton-box" class="">
         <div id="questions" class="hide">Question?</div>
         <div id="answers" class="select hide" >
             <button id="answer1" class="answer-buttons">answer1</button>
-            <button id="answer2" class=" answer-buttons">answer1</button>
+            <button id="answer2" class="answer-buttons">answer1</button>
             <button id="answer3" class="answer-buttons">answer1</button>
             <button id="answer4" class="answer-buttons">answer1</button>
         </div>
@@ -38,7 +38,12 @@
        </div>
     </div>
 
-
+    <div class="end hide">
+        <h2>Game Over</h2>
+        <label for="ini"></label>
+        <input type="text" name="ini" id="intials" value="Initials">
+        <button id="save-btn" onclick="saveScore()">Save</button>
+    </div>
 <script src="/3rd-grade-math-quiz/assets/script.js"></script>
 
     </div>
