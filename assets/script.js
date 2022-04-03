@@ -4,12 +4,14 @@ var startBtn = document.querySelector(".start-btn");
 var answers = document.querySelector(".select")
 var next = document.querySelector(".next-btn")
 var questions = document.querySelector("#questions")
-var mainB = document.querySelector("#question-box")
+var mainB = document.querySelector("#quesiton-box")
+// console.log("mainB", mainB)
 var endGame = document.querySelector(".end")
 var index = 0;
 var choose = 0;
 var time = 60;
 var score = 0;
+// var intials = document.querySelector("#initials")
 
 
 /*var question1 = {q1: ("What is 6 * 2?"), a: 15, b: 19, c: 12, d: 10, correct:("c")}
@@ -134,7 +136,9 @@ function startGame() {
     answers.classList.remove('hide')
     next.classList.remove('hide')
     questions.classList.remove('hide')
-    startBtn.classList.add('show')
+    // startBtn.classList.add('show')
+    startBtn.classList.add('hide')
+    // endGame.classList.add('hide')
     getQuestion();
     timer()
 
@@ -155,6 +159,7 @@ function timer(){
         document.querySelector('#timer').innerText = time
 
         if(time === 0){
+            
             clearInterval(setTime)
         }
     },1000)
@@ -168,22 +173,20 @@ function checkAnswer(answer){
     console.log(currentQuestion.correct)
 
     if(parsedAnswer === currentQuestion.correct){
-       answers.classList.add('right')
+        answers.classList.remove("wrong")
+        answers.classList.add('right')
        score++;
        console.log("right")
        drawScore();
+      
 
     }else{
+        answers.classList.remove("right")
         answers.classList.add('wrong')
         console.log("wrong")
         time--;
     }
-
-
-
 }
-
-
 
 function getQuestion(){
 
@@ -209,25 +212,28 @@ function drawScore(){
   }
 }
 
+
+
+function displayGameOver(){
+   mainB.classList.add('hide')
+   endGame.classList.remove('hide')
+   
+}
 /*
  - textbox for initials
  - save both initials and highscore to localstorage
  - display highscore along intials
 */
 
-function displayGameOver(){
-    endGame.classList.remove('hide')
-    //endGame.classList.add('show')
-
-    //mainB.classList.remove('show')
-    mainB.classList.add('hide')
-}
-
 function saveScore(){
     //event.preventDefault()
-    var initials = document.getElementById('initials')
-    console.log(initials + score)
+    var initials = document.getElementById('initials').value
+    // console.log(initials + score)
+    console.log(initials);
+    localStorage.setItem("score", initials + score);
 }
+
+
 
 // function nextQuestion(){
 

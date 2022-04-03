@@ -53,12 +53,7 @@ button{
     color:rgb(161, 77, 240);
 }
 
-.hide{
-    display: none;
-}
-.show{
-    display: none;
-}
+
 #next{
     text-align: center;
     transition-duration: 0.4s;
@@ -101,4 +96,30 @@ button{
 .end{
     
     background: rgb(2, 2, 59);
+    margin: auto;
+    font-size: 42px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    max-width: 800;
+    max-height: 80%;
+    height: 60vh;
+    width: 800px;
+    padding-bottom: 30px;
+}
+#save-btn :hover{
+    background-color:rgb(161, 77, 240);
+    color:white;
+}
+#save-btn{
+    transition-duration: 0.4s;
+}
+
+.hide {
+    display: none;
+}
+
+.show {
+    display: block;
 }

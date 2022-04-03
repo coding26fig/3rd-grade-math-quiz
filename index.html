@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2nd Grade Math Quiz</title>
+    <title>3rd Grade Math Quiz</title>
     <link rel="stylesheet" href="/3rd-grade-math-quiz/assets/stylesheet.css">
 </head>
 <body>
@@ -23,7 +23,7 @@
     </div>
         <!--Quiz box-->
     <div class="mainbox">
-        <div id="quesiton-box" class="">
+        <div id="quesiton-box" class= "">
         <div id="questions" class="hide">Question?</div>
         <div id="answers" class="select hide" >
             <button id="answer1" class="answer-buttons">answer1</button>
@@ -33,17 +33,20 @@
         </div>
         <!--Start and next buttons -->
         <div class="buttons">
-            <button id="start" class="start-btn .show">Start</button>
+            <button id="start" class="start-btn ">Start</button>
             <button id="next" class="next-btn hide">Next</button>
        </div>
     </div>
-
-    <div class="end hide">
+    <!--Game over box-->
+    <div class=" end hide">
         <h2>Game Over</h2>
         <label for="ini"></label>
-        <input type="text" name="ini" id="intials" value="Initials">
+        <input type="text" name="ini" id="initials" value="" placeholder="Initials">
         <button id="save-btn" onclick="saveScore()">Save</button>
+        
     </div>
+    </div>
+
 <script src="/3rd-grade-math-quiz/assets/script.js"></script>
 
     </div>
