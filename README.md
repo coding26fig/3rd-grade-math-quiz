@@ -10,8 +10,6 @@ This project was created for my 2nd grader. She loves galaxy themes and the colo
 * [Acknowledgements]
 * [Contact]
 
-
-
 ## General Information
 - This project is intended to showcase what I have learned so far
 - I wanted to use this project to expand my knowledge in JavaScript, HTML, and CSS
@@ -32,12 +30,8 @@ This project was created for my 2nd grader. She loves galaxy themes and the colo
 Project is: on going
 
 ## Room for Improvement
-
-Room for improvement:
-
 - The correct answer button turns green when selected
 - The incorrect answer button turns red if selected
-- Improvement to be done 2
 
 To do:
 - Add more questions
@@ -46,9 +40,7 @@ To do:
 
 ## Acknowledgements
 
-- 
-- 
-
+- Victor Lupasco (my tutor)
 
 ## Contact
 
