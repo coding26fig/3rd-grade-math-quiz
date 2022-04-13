@@ -23,7 +23,7 @@ This project was created for my 2nd grader. She loves galaxy themes and the colo
 
 
 ## Setup
--http://127.0.0.1:5502/3rd-grade-math-quiz/index.html
+-https://coding26fig.github.io/3rd-grade-math-quiz/
 
 
 ## Project Status
