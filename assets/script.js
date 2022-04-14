@@ -1,7 +1,7 @@
 
 // assigning elements to the html
 var startBtn = document.querySelector(".start-btn");
-var answers = document.querySelector(".select")
+var answers = document.querySelector("#answers")
 var next = document.querySelector(".next-btn")
 var questions = document.querySelector("#questions")
 var mainB = document.querySelector("#quesiton-box")
@@ -186,7 +186,7 @@ function checkAnswer(answer){
         console.log("wrong")
         time--;
     }
-}
+} 
 
 function getQuestion(){
 
