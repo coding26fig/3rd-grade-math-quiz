@@ -173,16 +173,16 @@ function checkAnswer(answer){
     console.log(currentQuestion.correct)
 
     if(parsedAnswer === currentQuestion.correct){
-        answers.classList.remove("wrong")
         answers.classList.add('right')
+        answers.classList.remove("wrong")
        score++;
        console.log("right")
        drawScore();
       
 
     }else{
-        answers.classList.remove("right")
         answers.classList.add('wrong')
+        answers.classList.remove("right")
         console.log("wrong")
         time--;
     }
